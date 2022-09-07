@@ -1,8 +1,8 @@
 Asslam O Alaikum, 
 
-Dear Brother, 
+Dear *{name}*, 
 
-This is a sample message. 
+Your section is {section}.
 
 Regards,
 

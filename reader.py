@@ -9,12 +9,13 @@ class Reader(object):
         return message
 
     @staticmethod
-    def get_whatsapp_numbers():
-        numbers = []
+    def get_receivers_info():
+        receivers_info = []
         f = open('numbers.txt', 'r')
         for line in f.read().splitlines():
             if line != '':
-                numbers.append(line)
+                receiver_info = line.split(',')
+                receivers_info.append(receiver_info)
         f.close()
 
-        return numbers
+        return receivers_info
