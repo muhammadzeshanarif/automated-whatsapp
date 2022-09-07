@@ -11,7 +11,7 @@ from sys import platform
 
 BASE_URL = 'https://web.whatsapp.com'
 SEND_MESSAGE_URL = BASE_URL + '/send?phone={number}&text={message}'
-RETRY_LIMIT = 3
+RETRY_LIMIT = 1
 DELAY = 30
 
 ERROR_MESSAGE = 'There is something wrong, Please check WhatsApp is connected and loaded properly.'
@@ -40,19 +40,21 @@ class ChromeWebDriver(object):
                 self.driver.get(url)
                 try:
                     send_button = WebDriverWait(self.driver, DELAY).until(
-                        EC.element_to_be_clickable((By.CLASS_NAME , '_4sWnG'))
+                        EC.element_to_be_clickable((By.CLASS_NAME , 'epia9gcq'))
                     )
                 except Exception as exc:
                     retry_count = i + 1
                     print(ERROR_MESSAGE)
-                    print(FAILED_MESSAGE)
+                    print(FAILED_MESSAGE.format(number=number))
                     print('Retrying {retry_count}/{retry_limit}'.format(retry_count=retry_count, retry_limit=RETRY_LIMIT))
                     print(str(exc))
                 else:
                     sleep(2)
                     send_button.click()
                     sleep(4)
-                    break
+                    return True
         except Exception as exc:
-            print(FAILED_MESSAGE)
+            print(FAILED_MESSAGE.format(number=number))
             print(str(exc))
+
+        return False
