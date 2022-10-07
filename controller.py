@@ -20,13 +20,12 @@ count = 1
 successful_receivers = []
 failed_receivers = []
 for index, receiver_info in enumerate(receivers_info): # 03334497842,Muhammad Zeshan Arif, 5B
-    number = receiver_info[0]
-    name = receiver_info[1]
-    section = receiver_info[2]
+    name = receiver_info[0]
+    number = receiver_info[1]
     if not number:
         continue
     print('{count}: {number}'.format(count=count, number=number))
-    user_message = original_message.format(name=name, section=section)
+    user_message = original_message.format(name=name)
     if driver.send(number, user_message):
         successful_receivers.append(receiver_info)
     else:
