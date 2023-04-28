@@ -11,6 +11,6 @@ A terminal automation app to send bulk whatsapp messages
 5. Create a virutal environment using this command: `python3 -m venv vauto`
 6. Activate the virual environment you just created using this command: `source vauto/bin/activate`
 7. Once the virtual environment starts, you're all set to send messages now
-8. Update the `numbers.txt` file with the whatsapp phone numbers that you want a message to
+8. Update the `numbers.txt` file with the whatsapp phone numbers that you want to send a message to
 9. Update the `message.txt` file with the message you want to send to the numbers you've added in the previous step
 10. Now you just need to run this command: `python3 controller.py` and follow along!
